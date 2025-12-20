@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/12.7.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/12.7.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 760px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <section style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color:#0f172a; max-width: 980px; margin: 0 auto; padding: 28px;">
+  <!-- Header -->
+  <div style="display:flex; gap:16px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:10px; padding:6px 12px; border:1px solid #e2e8f0; border-radius:999px; background:#ffffff;">
+        <span style="width:10px; height:10px; border-radius:50%; background:#22c55e; display:inline-block;"></span>
+        <span style="font-size:12px; font-weight:600; color:#334155;">IPTV Player • Mobile</span>
+      </div>
+
+      <h1 style="margin:14px 0 8px; font-size:36px; letter-spacing:-0.02em; line-height:1.15;">
+        SageIPTV
+      </h1>
+
+      <p style="margin:0; font-size:16px; color:#475569; max-width: 720px;">
+        SageIPTV is an IPTV player. Use it to watch <strong>Live TV</strong>, <strong>Movies</strong>, and <strong>Series</strong> on your phone.
+      </p>
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+      <a href="#premium" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#0f172a; color:#ffffff; font-weight:700; font-size:14px;">
+        Premium Access
+      </a>
+      <a href="#features" style="text-decoration:none; padding:10px 14px; border-radius:12px; border:1px solid #e2e8f0; background:#ffffff; color:#0f172a; font-weight:700; font-size:14px;">
+        View Features
+      </a>
+    </div>
+  </div>
+
+  <!-- Highlights -->
+  <div style="margin-top:20px; display:grid; grid-template-columns: repeat(12, 1fr); gap:14px;">
+    <div style="grid-column: span 4; border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#ffffff;">
+      <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Playlists & Portals</div>
+      <div style="color:#475569; font-size:14px;">Manage M3U playlists and Xtream/Portal sources with powerful ordering and visibility controls.</div>
+    </div>
+    <div style="grid-column: span 4; border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#ffffff;">
+      <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Fast Navigation</div>
+      <div style="color:#475569; font-size:14px;">Search categories and channels, browse in grid or list, and quickly jump through playback.</div>
+    </div>
+    <div style="grid-column: span 4; border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#ffffff;">
+      <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Playback & Casting</div>
+      <div style="color:#475569; font-size:14px;">Cast Live and VOD, control speed, zoom interactively, and keep favourites handy.</div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div id="features" style="margin-top:26px; border:1px solid #e2e8f0; border-radius:18px; background:#ffffff; overflow:hidden;">
+    <div style="padding:16px 18px; background:linear-gradient(180deg, #f8fafc, #ffffff); border-bottom:1px solid #e2e8f0;">
+      <h2 style="margin:0; font-size:20px; letter-spacing:-0.01em;">Features</h2>
+      <p style="margin:6px 0 0; color:#64748b; font-size:14px;">Everything you need for a smooth IPTV experience.</p>
+    </div>
+
+    <div style="padding:18px; display:grid; grid-template-columns: repeat(12, 1fr); gap:16px;">
+      <!-- Playlist Editor -->
+      <div style="grid-column: span 6; border:1px solid #e2e8f0; border-radius:16px; padding:14px;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">PE</span>
+          <div>
+            <div style="font-weight:800;">Playlists Editor</div>
+            <div style="color:#64748b; font-size:13px;">Organize, preview, export & share.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Move categories and channels to desired positions (reorderable categories and channels).</li>
+          <li>Enable or disable channels and categories.</li>
+          <li>View changes locally before applying.</li>
+          <li>Export and share the generated M3U playlist and use it with the M3U player of your choice.</li>
+        </ul>
+      </div>
+
+      <!-- EPG + M3U -->
+      <div style="grid-column: span 6; border:1px solid #e2e8f0; border-radius:16px; padding:14px;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">EPG</span>
+          <div>
+            <div style="font-weight:800;">EPG & Playlist Support</div>
+            <div style="color:#64748b; font-size:13px;">Guides, groups, logos, portals.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Electronic Program Guide (EPG) integration.</li>
+          <li>Extended M3U support (groups and logos).</li>
+          <li>Xtream Codes support.</li>
+          <li>Display Live, Videos and Series categories when you add portal info.</li>
+          <li>EPG integration for portals.</li>
+        </ul>
+      </div>
+
+      <!-- Browsing -->
+      <div style="grid-column: span 6; border:1px solid #e2e8f0; border-radius:16px; padding:14px;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">UI</span>
+          <div>
+            <div style="font-weight:800;">Browse & Search</div>
+            <div style="color:#64748b; font-size:13px;">Find what you want fast.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Display categories.</li>
+          <li>Search categories by category name.</li>
+          <li>Display channels from the selected category.</li>
+          <li>Search channels by name.</li>
+          <li>Grid or list view of TV channels.</li>
+          <li>Add to favourites / remove from favourites.</li>
+        </ul>
+      </div>
+
+      <!-- Playback & Cast -->
+      <div style="grid-column: span 6; border:1px solid #e2e8f0; border-radius:16px; padding:14px;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">▶</span>
+          <div>
+            <div style="font-weight:800;">Playback & Casting</div>
+            <div style="color:#64748b; font-size:13px;">Control your viewing experience.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Jump, fast forward, and rewind.</li>
+          <li>Playback speed control.</li>
+          <li>Scale the video interactively via zoom gestures.</li>
+          <li>Cast Live channels and VODs.</li>
+        </ul>
+      </div>
+
+      <!-- Management -->
+      <div style="grid-column: span 6; border:1px solid #e2e8f0; border-radius:16px; padding:14px;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">⚙</span>
+          <div>
+            <div style="font-weight:800;">Manage Playlists</div>
+            <div style="color:#64748b; font-size:13px;">Add, update, refresh, delete.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Manage playlists (add, update, refresh and delete).</li>
+          <li>Move portal categories to desired positions.</li>
+          <li>Disable/Enable portal categories.</li>
+          <li>Reorder channels in Live and VOD to show preferred channels first.</li>
+          <li>Enable/disable channels in Live and VOD.</li>
+        </ul>
+      </div>
+
+      <!-- Safety -->
+      <div style="grid-column: span 6; border:1px solid #e2e8f0; border-radius:16px; padding:14px;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">🔒</span>
+          <div>
+            <div style="font-weight:800;">Parental Control</div>
+            <div style="color:#64748b; font-size:13px;">More control, more peace of mind.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Enable parental control for categories and channels.</li>
+        </ul>
+      </div>
+
+      <!-- Power-user -->
+      <div style="grid-column: span 12; border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#f8fafc;">
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <span style="width:32px; height:32px; border-radius:12px; background:#0f172a; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;">✨</span>
+          <div>
+            <div style="font-weight:800;">Customization Details</div>
+            <div style="color:#64748b; font-size:13px;">Small touches for a better workflow.</div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:18px; color:#334155; font-size:14px;">
+          <li>Double tap to show the channel name in Live and VOD portal customization screens.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Premium -->
+  <div id="premium" style="margin-top:18px; border:1px solid #0f172a; border-radius:18px; overflow:hidden; background:#0f172a; color:#fff;">
+    <div style="padding:18px;">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+        <div>
+          <h2 style="margin:0; font-size:20px; letter-spacing:-0.01em;">Premium Access</h2>
+          <p style="margin:8px 0 0; color:#cbd5e1; font-size:14px; max-width: 720px;">
+            Upgrade for a cleaner experience and faster help when you need it.
+          </p>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <span style="display:inline-flex; padding:8px 12px; border:1px solid rgba(255,255,255,0.2); border-radius:999px; color:#e2e8f0; font-size:12px; font-weight:700;">
+            Best value
+          </span>
+        </div>
+      </div>
+
+      <div style="margin-top:12px; display:grid; grid-template-columns: repeat(12, 1fr); gap:12px;">
+        <div style="grid-column: span 6; border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:14px; background:rgba(255,255,255,0.06);">
+          <div style="font-weight:800; margin-bottom:6px;">No Ads</div>
+          <div style="color:#e2e8f0; font-size:14px;">Enjoy SageIPTV without interruptions.</div>
+        </div>
+        <div style="grid-column: span 6; border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:14px; background:rgba(255,255,255,0.06);">
+          <div style="font-weight:800; margin-bottom:6px;">Same-day Email Support</div>
+          <div style="color:#e2e8f0; font-size:14px;">Free support by email (same day).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer note -->
+  <p style="margin:16px 0 0; color:#64748b; font-size:12px;">
+    Note: SageIPTV is a media player and does not provide any content. You must add your own playlist or portal credentials.
+  </p>
+</section>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          //loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          //loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>
